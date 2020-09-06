@@ -1,0 +1,64 @@
+<% content_for :body_class, 'bg-light' %>
+
+<section class="section announcement-show">
+  <div class="columns">
+    <div class="column is-8">
+      <h1 class="title is-2"><%= @announcement.title %></h1>
+
+      <ul class="pv1">
+        <% if @announcement.category? %>
+        <li class="inline-block pr3"><%= @announcement.category %></li>
+        <% end %>
+
+        <% if @announcement.condition? %>
+        <li class="inline-block pr3"><%= @announcement.condition %></li>
+        <% end %>
+      </ul>
+
+      <div class="feature-image">
+        <%= image_tag(@announcement.image_url(:default)) %>
+      </div>
+
+      <div class="content pa4 mt3 bg-white border-radius-3">
+
+      <h3 class="subtitle is-4">Description</h3>
+      <%= @announcement.description %>
+
+
+      <h3 class="subtitle is-4 pt5">Product Specs</h3>
+
+      <table class="table is-narrow">
+        <% if @announcement.condition %>
+        <tr>
+          <td class="has-text-weight-bold">Condition:</td>
+          <td><%= @announcement.condition %></td>
+        </tr>
+        <% end %>
+
+        <% if @announcement.category %>
+          <tr>
+            <td class="has-text-weight-bold">Category:</td>
+            <td><%= @announcement.category %></td>
+          </tr>
+        <% end %>
+      
+      </table>
+    </div>
+    </div>
+    <div class="column is-3 is-offset-1">
+      <div class="bg-white pa4 border-radius-3">
+        <h4 class="title is-5 has-text-centered"><%= number_to_currency(@announcement.price) %></h4>
+        <p class="has-text-centered mb4">Sold by <%= @announcement.seller.username %></p>
+        <%= link_to "Acquista #{number_to_currency(@announcement.price)}", new_transaction_path(amount: @announcement.price, announcement: @announcement) ,class:"btn btn-default btn-expanded" %>
+      </div>
+
+
+
+    </div>
+  </div>
+  
+
+  <% if announcement_author(@announcement) %>
+    <%= link_to 'Edit', edit_announcement_path(@announcement), class: 'button' %>
+  <% end %>
+</section>

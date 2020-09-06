@@ -1,0 +1,96 @@
+<nav class="navbar is-warning" role="navigation" aria-label="main navigation">
+  <% if buyer_signed_in? %>
+    <a class="navbar-brand" href="#"></a>
+  <div class="navbar-start">
+  <div id="navbarBuyer" class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item">
+        I miei acquisti
+      </a>
+      <a class="navbar-item">
+        Preferiti
+      </a>
+      <a class="navbar-item">
+        I miei messaggi
+      </a>
+      <a class="navbar-item">
+        About
+      </a>
+   </div>
+  <a class="dropdown-item" href="/buyers/sign_out" data-method="delete"><i class="fa fa-sign-out"></i> &nbsp; Logout</a>
+  </nav>
+
+  &nbsp;&nbsp;
+
+  <% elsif seller_signed_in? %>
+  <a class="navbar-brand" href="#"></a>
+  <div class="navbar-start">
+  <div id="navbarBuyer" class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="/announcements/new"> &nbsp; 
+      Sell an object
+      </a>
+      <a class="navbar-item" href="/seller/my_objects">
+        I miei oggetti
+      </a>
+      <a class="navbar-item">
+        I miei messaggi
+      </a>
+      <a class="navbar-item">
+        About
+      </a>
+   </div>
+   </div>
+   </div>
+   <div class="navbar-end">
+  <a class="navbar-item" href="/sellers/sign_out" data-method="delete"><i class="fa fa-sign-out"></i> &nbsp; Logout</a>
+  <a class="navbar-item" href="/sellers/edit"></i> &nbsp; Edit</a>
+  </div>
+  </nav>
+  
+  &nbsp;&nbsp;
+  <% else %>
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href= "/">
+        Home
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            About
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</nav>
+  <% end %>
+  &nbsp;  &nbsp;

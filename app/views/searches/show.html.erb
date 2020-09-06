@@ -1,0 +1,42 @@
+<% content_for :header do %>
+
+<% end %>
+
+<% if @search.search_announcements.empty? %>
+<p> No announcement found</p>
+
+<% else %>
+
+<h1 class="title">Search result</h1>
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="announcement-index-grid pt4">
+  <% @search.search_announcements.each do |announcement| %>
+
+    <div class="announcement border-light">
+      <div class="announcement-thumb">
+      <%= link_to image_tag(announcement.image_url(:thumb)), announcement %>
+
+      <% if announcement.condition? %>
+        <div class="condition">
+          <span class="tag is-dark"><%= announcement.condition %></span>
+        </div>
+      <% end %>
+      </div>
+
+
+    <div class="pa3">
+
+      <h3 class="fw7 f4 title"><%= link_to announcement.title, announcement %></h3>
+
+      <p class="has-text-gray fg pt1">Sold by <%= announcement.seller.email %></p>
+
+      <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(announcement.price) %></p>
+
+    </div>
+  </div>
+  <% end %>
+</div>
+<%end%>

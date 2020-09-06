@@ -1,0 +1,49 @@
+ 
+ <section class="section">
+    <div class="container is-fluid">
+    <div class = "notification">
+      <h1 class="title">Cerca tra gli annunci</h1>
+      <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Cosa cerchi?</label>
+      </div>
+    <form action = "/searches" accept-charset= "UTF-8" data-remote = "true" method="post">
+      <div class="field-body">
+    <div class="field">
+      <p class="control is-expanded has-icons-left">
+        <input class="input" type="text"  name= "search[title]" placeholder="titolo">
+      </p>
+    </div>
+    <div class="field-label is-normal">
+        <label class="label">Categoria</label>
+    </div>
+    <div class="field">
+    <div class="control is-expanded">
+        <div class="select is-fullwidth">
+        <select name= "search[category]">
+            <option>Telefonia</option>
+            <option>Car</option>
+            <option>Abbigliamento</option>
+            <option>Elettronics</option>
+        </select>
+        </div>
+    </div>
+    </div>
+    <div class="field-label is-normal">
+      <label class="label">Dove</label>
+    </div>
+    <div class="field">
+      <p class="control is-expandeds">
+        <input class="input" type="text" placeholder="Email">
+      </p>
+    </div>
+    <div class="field is-grouped">
+  <div class="control">
+  <input class="button" type="submit" value="Create">
+
+  </div>
+  </div>
+  </div>
+</div>
+
+</form>

@@ -1,0 +1,92 @@
+// Place all the styles related to the store controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Stripe form
+.stripe-form {
+    @apply bg-whiterounded-lgblockp-6;
+  
+    * {
+      @apply font-sanstext-basefont-normal;
+    }
+  
+    label {
+      @apply text-gray-900;
+    }
+  
+    .card-only {
+      @apply block;
+    }
+  
+    .StripeElement {
+      @apply borderpx-3py-3rounded-lg;
+    }
+  
+    input, button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      outline: none;
+      border-style: none;
+      color: #fff;
+    }
+  
+    input:-webkit-autofill {
+      transition: background-color 100000000s;
+       
+    }
+  
+  
+    input::-webkit-input-placeholder {
+      @apply text-gray-400;
+    }
+  
+    input::-moz-placeholder {
+      @apply text-gray-400;
+    }
+  
+    input:-ms-input-placeholder {
+      @apply text-gray-400;
+    }
+  
+    button {
+      @apply bg-indigo-500roundedmt-4text-whitecursor-pointerw-fullblockh-10;
+    }
+  
+    button:active {
+      @apply bg-indigo-600;
+    }
+  
+    .error {
+      svg {
+        .base {
+          fill: #e25950;
+        }
+  
+        .glyph {
+          fill: #f6f9fc;
+        }
+      }
+  
+      .success {
+        .icon .border {
+          stroke: #ffc7ee;
+        }
+  
+        .icon .checkmark {
+          @apply bg-indigo-500;
+        }
+  
+        .title {
+          color: #32325d;
+        }
+  
+        .message {
+          color: #8898aa;
+        }
+  
+        .reset path {
+          @apply bg-indigo-500;
+        }
+      }
+    }
+  }

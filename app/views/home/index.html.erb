@@ -1,0 +1,90 @@
+ 
+ <section class="section">
+    <div class="container is-fluid">
+    <div class = "notification">
+      <h1 class="title">Cerca tra gli annunci</h1>
+      <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Cosa cerchi?</label>
+      </div>
+      <div class="field-body">
+    <div class="field">
+      <p class="control is-expanded has-icons-left">
+        <input class="input" type="text"  name= "title" placeholder="titolo">
+      </p>
+    </div>
+    <div class="field-label is-normal">
+        <label class="label">Categoria</label>
+    </div>
+    <div class="field">
+    <div class="control is-expanded">
+        <div class="select is-fullwidth">
+        <select>
+            <option>Telefonia</option>
+            <option>Auto</option>
+            <option>Abbigliamento</option>
+            <option>Elettronica</option>
+        </select>
+        </div>
+    </div>
+    </div>
+    <div class="field-label is-normal">
+      <label class="label">Dove</label>
+    </div>
+    <div class="field">
+      <p class="control is-expandeds">
+        <input class="input" type="text" placeholder="Email">
+      </p>
+    </div>
+    <div class="field is-grouped">
+  <div class="control">
+  </div>
+  </div>
+  </div>
+</div>
+
+</form>
+
+
+<br>
+<br>
+
+<div class="columns">
+  <div class="column is-2">
+  </div>
+  <div class="column is-3">
+  <div class="card">
+  <div class="card-image">
+    <figure class="image is-3by2">
+      <a href='/sellers/sign_up'> <%= image_tag("seller.png", ) %></a>
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="content">
+      <a href="#"> Are you a seller ?</a>
+    </div>
+  </div>
+</div>
+  </div>
+  <div class="column is-2">
+  </div>
+  <div class="column is-3">
+  <div class="card">
+  <div class="card-image">
+    <figure class="image is-3by2">
+      <a href='/buyers/sign_up'> <%= image_tag("buyer.png", ) %></a>
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="content">
+    <a href="#"> Are you a buyer ?</a>
+    <p><%= link_to "Cerca", new_search_path %></p>
+      
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
