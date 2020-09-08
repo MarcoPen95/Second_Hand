@@ -1,0 +1,26 @@
+<% content_for :header do %>
+    <div class="container">
+      <h1 class="title">
+        I tuoi acquisti
+      </h1>
+    </div>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.description %></td>
+        <td><%= link_to 'Show', transaction_url(transaction.id,seller: transaction.seller_id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -9,10 +9,14 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1
   # GET /transactions/1.json
-
+  def show
+    @seller = Seller.find(params[:seller])
+    return @seller
+  end
 
   # GET /transactions/new
   def new
+    @transaction = Transaction.new
     @announcement = Announcement.find(params[:announcement])
   end
 
@@ -23,15 +27,16 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    @announcement = Announcement.find('1')
+    @announcement = Announcement.find(params[:announcement])
+
+    @transaction = Transaction.new(buyer_id: current_buyer.id, description: @announcement.title,seller_id: @announcement.seller.id )
     key = @announcement.seller.access_code
     Stripe.api_key = key
 
-  
     token = params[:stripeToken]
 
     customer = if current_buyer.stripe_id?
-                Stripe::Customer.retrieve(current_buyer.stripe_id)
+                Stripe::Customer.retrieve(current_user.stripe_id)
               else
                 Stripe::Customer.create(email: current_buyer.email, source: token)
               end
@@ -39,18 +44,27 @@ class TransactionsController < ApplicationController
               payment_intent = Stripe::PaymentIntent.create({
                 customer:customer,
                 payment_method_types: ['card'],
-                amount: 8000,
+                amount: @announcement.price.to_i * 100,
                 currency: 'eur',
                 confirm: true, 
               }, stripe_account: @announcement.seller.uid)
 
-    
-    redirect_to root_path, notice: payment_intent.status + " Your transaction was setup successfully!"
- 
+    respond_to do |format|
+      if @transaction.save
+        format.html { redirect_to buyer_my_transactions_path, notice: 'Transaction was successfully created.' }
+        format.json { render :show, status: :created, location: @transaction }
+      else
+        format.html { render :new }
+        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
-  
+  def my_transactions
 
+
+
+  end
 
   # PATCH/PUT /transactions/1
   # PATCH/PUT /transactions/1.json
@@ -84,6 +98,6 @@ class TransactionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_params
-      params.require(:transaction).permit(:description)
+      params.require(:transaction).permit(:seller_id,:buyer_id, :description)
     end
 end

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   #buyer route
   get '/buyer/home', to: 'buyer#home'
+  get '/buyer/my_transactions', to: 'buyer#my_transactions'
+
+
 
   #seller route
   get '/seller/home', to: 'seller#home'
