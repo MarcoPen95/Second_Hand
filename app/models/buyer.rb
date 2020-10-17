@@ -3,6 +3,7 @@ class Buyer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
 <<<<<<< HEAD
+<<<<<<< HEAD
          :recoverable, :rememberable, :validatable
 
   has_many :favorites
@@ -10,6 +11,8 @@ class Buyer < ApplicationRecord
   has_many :messages
   has_many :conversations, foreign_key: :sender_id
 =======
+=======
+>>>>>>> a7201da46f17462f501df17ed01855735e2456cf
          :recoverable, :rememberable, :validatable,
          :omniauthable 
   
@@ -45,5 +48,8 @@ class Buyer < ApplicationRecord
     end
     return buyer
   end
+<<<<<<< HEAD
+>>>>>>> a7201da46f17462f501df17ed01855735e2456cf
+=======
 >>>>>>> a7201da46f17462f501df17ed01855735e2456cf
 end
