@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :announcements
   devise_for :sellers, path: 'sellers', controllers: { omniauth_callbacks: "omniauth_callbacks", registrations: "sellers/registrations",sessions: "sellers/sessions"}
-  devise_for :buyers, path: 'buyers', controllers: { registrations: "buyers/registrations",sessions: "buyers/sessions"}
+  devise_for :buyers, path: 'buyers', controllers: { registrations: "buyers/registrations",sessions: "buyers/sessions", omniauth_callbacks: "buyers/omniauth_callbacks"}
   
   #home routes
   root 'home#index'

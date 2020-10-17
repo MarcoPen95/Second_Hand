@@ -5,7 +5,22 @@ class Buyers::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # devise :omniauthable, omniauth_providers: [:twitter]
 
   # You should also create an action method in this controller like this:
-  # def twitter
+    def all
+      buyer = Buyer.from_omniauth(request.env["omniauth.auth"])
+      if buyer.persisted?
+        session[:buyer_id] = buyer.id
+        sign_in buyer, notice: "Signed in!"
+        redirect_to root_path
+      else
+        # Devise allow us to save the attributes eventhough
+        # we haven't create the user account yet
+        session["devise.buyer_attributes"] = buyer.attributes
+        redirect_to root_path
+      end
+    end
+    alias_method :google_oauth2, :all
+  
+    # def twitter
   # end
 
   # More info at:
@@ -17,9 +32,9 @@ class Buyers::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
   # GET|POST /users/auth/twitter/callback
-  # def failure
-  #   super
-  # end
+  def failure
+    redirect_to root_path
+  end
 
   # protected
 
