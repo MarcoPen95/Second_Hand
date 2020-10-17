@@ -56,6 +56,7 @@ gem 'mini_magick'
 gem 'stripe'
 gem'omniauth', '~> 1.9'
 gem 'omniauth-stripe-connect'
+gem 'omniauth-google-oauth2'
 
 
 group :development do
