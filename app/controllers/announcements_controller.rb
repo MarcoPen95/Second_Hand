@@ -10,11 +10,20 @@ class AnnouncementsController < ApplicationController
   # GET /announcements/1
   # GET /announcements/1.json
   def show
+    if(buyer_signed_in?)
+      @favorite_exists = Favorite.where(announcement: @announcement, buyer: current_buyer) == [] ? false : true
+    end
   end
 
   # GET /announcements/new
   def new
+    if (current_seller.can_receive_payments?)
     @announcement = current_seller.announcements.build
+    else
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "You can't insert an announcement because you are not connected to stripe"}
+      end
+    end
   end
 
   # GET /announcements/1/edit

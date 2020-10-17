@@ -1,4 +1,18 @@
 Rails.application.configure do
+
+
+
+config.action_mailer.delivery_method = :smtp
+# SMTP settings for gmail
+config.action_mailer.smtp_settings = {
+ :address              => 'smtp.mailgun.org',
+ :port                 => 587,
+ :user_name            => ENV['mailgun_username'],
+ :password             => ENV['mailgun_password'],
+ :domain               => ENV['domain'],
+ :authentication       => "plain",
+ :enable_starttls_auto => true
+}
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

@@ -56,6 +56,11 @@ gem 'mini_magick'
 gem 'stripe'
 gem'omniauth', '~> 1.9'
 gem 'omniauth-stripe-connect'
+gem 'jquery-rails'
+gem 'sendgrid-ruby'
+gem 'figaro'
+gem 'mailgun-ruby', '~>1.1.6'
+
 
 
 group :development do

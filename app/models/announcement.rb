@@ -3,7 +3,7 @@ class Announcement < ApplicationRecord
     mount_uploader :image, ImageUploader
     serialize :image, JSON
     belongs_to :seller, optional: true
-
+    has_many   :transactions
     validates :title, :category, :price, presence:true
     validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed."}
     validates :title, length: {maximum: 140, too_long: "%{count} characters is the maximum allowed"}

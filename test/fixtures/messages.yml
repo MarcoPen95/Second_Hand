@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyText
+  buyer: one
+  seller: one
+  conversation: one
+
+two:
+  body: MyText
+  buyer: two
+  seller: two
+  conversation: two

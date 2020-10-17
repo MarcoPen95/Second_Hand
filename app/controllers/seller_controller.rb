@@ -5,6 +5,10 @@ class SellerController < ApplicationController
     def home
     end
 
+    def profile
+        
+    end
+
 
     def my_objects
         @announcements = current_seller.announcements
@@ -12,6 +16,11 @@ class SellerController < ApplicationController
 
     end
 
+    def my_orders
+        @orders = current_seller.orders
+
+
+    end
 
 
 

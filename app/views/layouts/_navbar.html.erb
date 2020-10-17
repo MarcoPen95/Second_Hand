@@ -3,23 +3,29 @@
     <a class="navbar-brand" href="#"></a>
   <div class="navbar-start">
   <div id="navbarBuyer" class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    <div class="navbar-start">
+      <a class="navbar-item" href="/">
+      Home
+      </a>
       <a class="navbar-item" href="/buyer/my_transactions">
         I miei acquisti
       </a>
-      <a class="navbar-item">
+      <a class="navbar-item" href='/buyer/my_favorites'>
         Preferiti
       </a>
-      <a class="navbar-item">
+      <a class="navbar-item" href="/buyer/my_messages">
         I miei messaggi
       </a>
-      <a class="navbar-item">
-        About
-      </a>
+       <a class="navbar-item" href= "/searches/new">
+         Cerca 
+        </a>
    </div>
    </div>
    </div>
    <div class="navbar-end">
+   <a class="navbar-item">
+        About
+   </a>
   <a class="navbar-item" href="/buyers/sign_out" data-method="delete"><i class="fa fa-sign-out"></i> &nbsp; Logout</a>
   </div>
 </nav>
@@ -37,18 +43,34 @@
       <a class="navbar-item" href="/seller/my_objects">
         I miei oggetti
       </a>
-      <a class="navbar-item">
+      <a class="navbar-item" href="/seller/my_messages">
         I miei messaggi
       </a>
-      <a class="navbar-item">
-        About
-      </a>
+      <div class="navbar-item has-dropdown is-hoverable" data-behavior ="notifications" data-notifications='<%= render template: "notifications/index",formats: [:json] %>'>
+        <a class="navbar-link">
+          <i class="fa fa-bell-o fa-lg" id="1" aria-hidden=""></i><span data-behavior = "unread-count"></span>
+        </a>
+        <div class="navbar-dropdown" data-behavior = "notifications-items">
+        </div>
+      </div>
    </div>
    </div>
+    <a class="navbar-item" href="/seller/my_orders">
+        Ordini
+   </a>
    </div>
    <div class="navbar-end">
+   <a class="navbar-item">
+        About
+   </a>
+  <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link">Hi <%= current_seller.username %></a>
+  <div class="navbar-dropdown">
+  <a class="navbar-item" href="/seller/profile"> &nbsp; Profilo</a>
+  <a class="navbar-item" href="/sellers/edit"> &nbsp; Edit</a>
   <a class="navbar-item" href="/sellers/sign_out" data-method="delete"><i class="fa fa-sign-out"></i> &nbsp; Logout</a>
-  <a class="navbar-item" href="/sellers/edit"></i> &nbsp; Edit</a>
+  </div>
+  </div>
   </div>
   </nav>
   
@@ -68,29 +90,10 @@
         Home
       </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
-        </div>
+         <a class="navbar-item" href= "/searches/new">
+         Cerca 
+         </a>
       </div>
     </div>
   </div>

@@ -1,0 +1,7 @@
+<%= link_to "#",class: "navbar-item #{"unread" if !notification.read_at?}", "data-behavior"=>"notifications-link" do %>
+
+
+  <%= notification.actor.username %>
+  <%= notification.action %>
+  a your object
+<% end %>

@@ -29,7 +29,7 @@ class TransactionsController < ApplicationController
   def create
     @announcement = Announcement.find(params[:announcement])
 
-    @transaction = Transaction.new(buyer_id: current_buyer.id, description: @announcement.title,seller_id: @announcement.seller.id )
+    @transaction = Transaction.new(announcement: @announcement, buyer_id: current_buyer.id, description: @announcement.title,seller_id: @announcement.seller.id )
     key = @announcement.seller.access_code
     Stripe.api_key = key
 
@@ -51,6 +51,10 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
+        #create the notifications
+        Order.create(description: "ordine 2",seller:@announcement.seller,announcement: @announcement)
+        Notification.create(recipient: @announcement.seller, actor: current_buyer, action: "buy" ,notifiable: @announcement)
+        @user = current_buyer
         format.html { redirect_to buyer_my_transactions_path, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
       else

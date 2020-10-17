@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th> I miei preferiti</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @favorites.each do |favorite| %>
+      <tr>
+        <td><%= link_to favorite.announcement.title, favorite.announcement %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table
