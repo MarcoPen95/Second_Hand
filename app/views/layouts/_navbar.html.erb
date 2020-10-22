@@ -7,7 +7,7 @@
       <a class="navbar-item" href="/">
       Home
       </a>
-      <a class="navbar-item" href="/buyer/my_transactions">
+      <a class="navbar-item" href="/buyer/my_purchases">
         I miei acquisti
       </a>
       <a class="navbar-item" href='/buyer/my_favorites'>
@@ -26,7 +26,12 @@
    <a class="navbar-item">
         About
    </a>
-  <a class="navbar-item" href="/buyers/sign_out" data-method="delete"><i class="fa fa-sign-out"></i> &nbsp; Logout</a>
+   <div class="navbar-item has-dropdown is-hoverable">
+    <a class="navbar-link">Hi <%= current_buyer.username %></a>
+    <div class="navbar-dropdown">
+    <a class="navbar-item" href="/buyers/edit"> &nbsp; Edit</a>
+    <a class="navbar-item" href="/buyers/sign_out" data-method="delete"><i class="fa fa-sign-out"></i> &nbsp; Logout</a>
+  </div>
   </div>
 </nav>
 
@@ -37,14 +42,13 @@
   <div class="navbar-start">
   <div id="navbarBuyer" class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+     <a class="navbar-item" href="/">
+      Home
       <a class="navbar-item" href="/announcements/new"> &nbsp; 
       Sell an object
       </a>
       <a class="navbar-item" href="/seller/my_objects">
         I miei oggetti
-      </a>
-      <a class="navbar-item" href="/seller/my_messages">
-        I miei messaggi
       </a>
       <div class="navbar-item has-dropdown is-hoverable" data-behavior ="notifications" data-notifications='<%= render template: "notifications/index",formats: [:json] %>'>
         <a class="navbar-link">

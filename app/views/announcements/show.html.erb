@@ -51,7 +51,7 @@
       <%=link_to favorite_text, favorites_update_path(announcement: @announcement), id:'favorite_link', remote: true %>
         <p >Venduto da <%= @announcement.seller.username %></p>
         <button class="buy">
-        <%= link_to "Acquista #{number_to_currency(@announcement.price)}", new_transaction_path(amount: @announcement.price, announcement: @announcement) ,class:"btn btn-default btn-expanded" %>
+        <%= link_to "Acquista #{number_to_currency(@announcement.price)}", new_purchase_path(amount: @announcement.price, announcement: @announcement) ,class:"btn btn-default btn-expanded" %>
         </button>
       </div>
     </div>
@@ -62,11 +62,12 @@
   <div class="column is-3 is-offset-1">
   <div class="bg-white pa4 border-radius-3">
     <p >Venduto da <%= @announcement.seller.email %></p>
+     <% if announcement_author(@announcement) %>
+    <%= link_to 'Edit', edit_announcement_path(@announcement), class: 'button' %>
+    <% end %>
   </div>
+ 
   </div>
   <% end%>
 
-  <% if announcement_author(@announcement) %>
-    <%= link_to 'Edit', edit_announcement_path(@announcement), class: 'button' %>
-  <% end %>
 </section>

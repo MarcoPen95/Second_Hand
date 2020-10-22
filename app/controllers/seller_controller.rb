@@ -17,10 +17,13 @@ class SellerController < ApplicationController
     end
 
     def my_orders
-        @orders = current_seller.orders
+        @orders = Order.where(seller: current_seller,completed: false)
+        @completed = Order.where(seller: current_seller,completed: true)
+
 
 
     end
+    
 
 
 

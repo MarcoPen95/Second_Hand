@@ -3,6 +3,7 @@
     <div class="container is-fluid">
     <section class = "section">
     <% if seller_signed_in? %>
+      <h3> Hi Seller now you can start to insert announcements </h3>
       <div class= "column-is-4">
       <div class= "p-6 mt-10 text-gray-900 bg-white rounded shadow-lg">
       <% unless current_seller.can_receive_payments? %>

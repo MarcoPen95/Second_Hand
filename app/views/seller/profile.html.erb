@@ -1,20 +1,20 @@
 <!-- profile page -->
 <div class="container">
 <div class="columns">
-  <div class="column is-2">
-  </div>
-  <div class="column is-4">
-  <div class="card">
-  <div class="card-image">
-    <figure class="image is-2by2">
-     <% if current_seller.avatar.attached? %>
-      <a href='#'> <%= image_tag(current_seller.avatar ) %></a>
-    <% end %>
-    </figure>
+   <div class="column is-2">
+    </div>
+   <div class="column is-5">
+    <div class="card">
+       <div class="card-image">
+       <figure class="image is-3by3">
+       <% if current_seller.avatar.attached? %>
+       <a href='#'> <%= image_tag(current_seller.avatar ) %></a>
+       <% end %>
+      </figure>
   </div>
   <br>
   <br>
-  <div class="card-content">
+   <div class="card-content">
     <div class="content">
       <p>Username:<%= current_seller.username %> </p>
       <p>Email:<%= current_seller.email %> </p>
@@ -24,17 +24,5 @@
 </div>
 <br>
 <br>
-  <div class="column is-2">
-  <div class="card">
-  <div class="card-content">
-    <div class="content">
-    <a href="#"> Are you a buyer ?</a>
-      
-    </div>
-  </div>
-  </div>
-  </div>
-</div>
-</div>
 </div>
 </div>

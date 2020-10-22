@@ -2,18 +2,12 @@ class Buyer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-<<<<<<< HEAD
-<<<<<<< HEAD
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable 
 
   has_many :favorites
-  has_many :transactions
+  has_many :purchases
   has_many :messages
   has_many :conversations, foreign_key: :sender_id
-=======
-=======
->>>>>>> a7201da46f17462f501df17ed01855735e2456cf
-         :recoverable, :rememberable, :validatable,
          :omniauthable 
   
   validates :username, presence: true
@@ -48,8 +42,5 @@ class Buyer < ApplicationRecord
     end
     return buyer
   end
-<<<<<<< HEAD
->>>>>>> a7201da46f17462f501df17ed01855735e2456cf
-=======
->>>>>>> a7201da46f17462f501df17ed01855735e2456cf
+
 end

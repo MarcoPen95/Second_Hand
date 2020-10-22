@@ -1,16 +1,18 @@
 <% content_for :header do %>
     <div class="container">
       <h1 class="title">
-        I tuoi ordini
+        Ordini da completare
       </h1>
     </div>
 <% end %>
 <table class="table table-striped">
   <thead class="thead-dark">
      <tr>
-       <th scope="col">Descrizione</th>
-       <th colspan="3">Seller</th>
-       <th colspan="3"></th>
+       <th colspan="2 ">Descrizione</th>
+       <th colspan="1">Purchase id</th>
+       <th colspan="1">Buyer email</th>
+       <th colspan="1">Buyer username</th>
+       <th colspan="1"></th>
       </tr>
   </thead>
 
@@ -18,14 +20,40 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.description %><th>
-        <td><%= order.seller %><th>
-        <td><%= order.seller.id%></th>
-        <td><%= order.transaction_id %></th>
-        <br>
-        <td><%= link_to 'Show' %></td>
+        <td><%= order.purchase.id%></th>
+        <td><%= order.purchase.buyer.email%></th>
+        <td><%= order.purchase.buyer.username%></th>
+        <td><%= link_to 'Edit', edit_order_path(order) , :class=>"btn btn-outline-primary" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+     <div class="container">
+      <h1 class="title">
+        Ordini completati
+      </h1>
+    </div>
+<table class="table table-striped">
+  <thead class="thead-dark">
+     <tr>
+       <th colspan="2 ">Descrizione</th>
+       <th colspan="1">Purchase id</th>
+       <th colspan="1">Buyer email</th>
+       <th colspan="1">Buyer username</th>
+       <th colspan="1"></th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @completed.each do |completed| %>
+      <tr>
+        <td><%= completed.description %><th>
+        <td><%= completed.purchase.id%></th>
+        <td><%= completed.purchase.buyer.email%></th>
+        <td><%= completed.purchase.buyer.username%></th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 
 <br>

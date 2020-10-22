@@ -1,0 +1,36 @@
+[33mcommit 88ff4177e30f9f008fa5d0f1103554bebafa6299[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: 5c0e2bb a7201da
+Author: MarcoPen95 <pennyflash.95@gmail.com>
+Date:   Sat Oct 17 17:14:49 2020 +0200
+
+    updates
+
+[33mcommit 5c0e2bbaaa5a48fbd5d64659f76c01ece2260af3[m
+Author: MarcoPen95 <pennyflash.95@gmail.com>
+Date:   Sat Oct 17 17:08:39 2020 +0200
+
+    updates
+
+[33mcommit 8a9963f241928a9d539bc6440f9f113388feb3d8[m
+Author: MarcoPen95 <pennyflash.95@gmail.com>
+Date:   Sat Oct 17 17:03:45 2020 +0200
+
+    updates
+
+[33mcommit a7201da46f17462f501df17ed01855735e2456cf[m
+Author: Dorjan Hysa <dorjan.hysa@gmail.com>
+Date:   Sat Oct 17 17:00:39 2020 +0200
+
+    oauth integration
+
+[33mcommit 9f70e50b822216007c30d7e1b54d52d78a1adf00[m
+Author: MarcoPen95 <pennyflash.95@gmail.com>
+Date:   Tue Sep 8 17:25:25 2020 +0200
+
+    stripe integration
+
+[33mcommit 58b92894a92df00412dbacec41d9eaeb68472a88[m
+Author: MarcoPen95 <pennyflash.95@gmail.com>
+Date:   Sun Sep 6 17:55:51 2020 +0200
+
+    first commit

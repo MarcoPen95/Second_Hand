@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :orders
   get 'favorites/update'
-  resources :transactions
+  resources :purchases
   resources :carts
   resources :announcements
   devise_for :sellers, path: 'sellers', controllers: { omniauth_callbacks: "omniauth_callbacks", registrations: "sellers/registrations",sessions: "sellers/sessions"}
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   #buyer route
   get '/buyer/home', to: 'buyer#home'
-  get '/buyer/my_transactions', to: 'buyer#my_transactions'
+  get '/buyer/my_purchases', to: 'buyer#my_purchases'
   get '/buyer/my_favorites', to: 'buyer#my_favorites'
   get '/buyer/my_messages', to: 'chat#index'
 

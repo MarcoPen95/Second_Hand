@@ -13,14 +13,12 @@ class FavoritesController < ApplicationController
       #create the notifications
       @user = current_buyer
       # Sends email to user when user is created.
-      ExampleMailer.sample_email(@user).deliver_now
       Notification.create(recipient: @announcement.seller, actor: current_buyer, action: "prefer" ,notifiable: @announcement)
-      Order.create(description: "ciao",seller:@announcement.seller,announcement: @announcement)
       format.html { redirect_to buyer_my_favorites_path, notice: 'Annuncio aggiunto ai preferiti' }
       format.js {}
       else
         format.html { render :new }
-        format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        format.json { render json: @purchase.errors, status: :unprocessable_entity }
       end
     end
 

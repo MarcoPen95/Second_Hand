@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_10_17_102753) do
+ActiveRecord::Schema.define(version: 2020_10_20_150003) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -34,12 +32,6 @@ ActiveRecord::Schema.define(version: 2020_10_17_102753) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
-=======
-ActiveRecord::Schema.define(version: 2020_10_15_195632) do
->>>>>>> a7201da46f17462f501df17ed01855735e2456cf
-=======
-ActiveRecord::Schema.define(version: 2020_10_15_195632) do
->>>>>>> a7201da46f17462f501df17ed01855735e2456cf
 
   create_table "announcements", force: :cascade do |t|
     t.string "title"
@@ -51,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_10_15_195632) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.integer "seller_id"
+    t.boolean "sold", default: false, null: false
   end
 
   create_table "buyers", force: :cascade do |t|
@@ -70,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_10_15_195632) do
     t.string "card_type"
     t.string "uid"
     t.string "providers"
+    t.string "città"
     t.index ["email"], name: "index_buyers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_buyers_on_reset_password_token", unique: true
   end
@@ -128,9 +122,23 @@ ActiveRecord::Schema.define(version: 2020_10_15_195632) do
     t.integer "transaction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "purchase_id"
+    t.boolean "completed", default: false, null: false
     t.index ["announcement_id"], name: "index_orders_on_announcement_id"
+    t.index ["purchase_id"], name: "index_orders_on_purchase_id"
     t.index ["seller_id"], name: "index_orders_on_seller_id"
     t.index ["transaction_id"], name: "index_orders_on_transaction_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.string "description"
+    t.integer "seller_id"
+    t.integer "buyer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "announcement_id"
+    t.index ["buyer_id"], name: "index_purchases_on_buyer_id"
+    t.index ["seller_id"], name: "index_purchases_on_seller_id"
   end
 
   create_table "searches", force: :cascade do |t|
@@ -156,17 +164,6 @@ ActiveRecord::Schema.define(version: 2020_10_15_195632) do
     t.string "publishable_key"
     t.index ["email"], name: "index_sellers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.string "description"
-    t.integer "seller_id"
-    t.integer "buyer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "announcement_id"
-    t.index ["buyer_id"], name: "index_transactions_on_buyer_id"
-    t.index ["seller_id"], name: "index_transactions_on_seller_id"
   end
 
 end

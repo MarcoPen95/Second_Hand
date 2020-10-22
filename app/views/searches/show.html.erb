@@ -14,7 +14,8 @@
 
 <div class="announcement-index-grid pt4">
   <% @search.search_announcements.each do |announcement| %>
-
+  
+  <% if ! announcement.sold %>
     <div class="announcement border-light">
       <div class="announcement-thumb">
       <%= link_to image_tag(announcement.image_url(:thumb)), announcement %>
@@ -37,6 +38,7 @@
 
     </div>
   </div>
+  <% end %>
   <% end %>
 </div>
 <%end%>
