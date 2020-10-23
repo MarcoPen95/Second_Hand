@@ -1,16 +1,32 @@
-<table>
-  <thead>
-    <tr>
-      <th> I miei preferiti</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @favorites.each do |favorite| %>
-      <tr>
-        <td><%= link_to favorite.announcement.title, favorite.announcement %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table
+<% content_for :header do %>
+  <div class="container">
+    <h1 class="title">
+      Preferiti
+    </h1>
+  </div>
+<% end %>
+<table class="table table-striped">
+<thead class="thead-dark">
+   <tr>
+     <th colspan="1">Titolo</th>
+     <th colspan="1">Descrizione</th>
+     <th colspan="1">Categoria </th>
+     <th colspan="1">Disponibilità</th>
+     <th colspan="1">Prezzo</th>
+     <th colspan="1"></th>
+    </tr>
+</thead>
+
+<tbody>
+  <% @favorites.each do |favorite| %>
+    <tr>
+      <td><%= favorite.announcement.title%></th>
+      <td><%= favorite.announcement.description%></th>
+      <td><%= favorite.announcement.category%></th>
+      <td><%= favorite.announcement.sold%></th>
+      <td><%= favorite.announcement.price%></th>
+      <td><%= link_to 'Mostra' , favorite.announcement %></td>
+    </tr>
+  <% end %>
+</tbody>
