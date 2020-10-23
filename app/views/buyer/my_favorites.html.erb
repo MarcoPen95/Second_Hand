@@ -6,6 +6,7 @@
     </h1>
   </div>
 <% end %>
+<br>
 <table class="table table-striped">
 <thead class="thead-dark">
    <tr>
@@ -21,12 +22,17 @@
 <tbody>
   <% @favorites.each do |favorite| %>
     <tr>
-      <td><%= favorite.announcement.title%></th>
-      <td><%= favorite.announcement.description%></th>
-      <td><%= favorite.announcement.category%></th>
-      <td><%= favorite.announcement.sold%></th>
-      <td><%= favorite.announcement.price%></th>
+      <td><%= favorite.announcement.title%></td>
+      <td><%= favorite.announcement.description%></td>
+      <td><%= favorite.announcement.category%></td>
+      <% if favorite.announcement.sold? %>
+      <td> "No" </td>
+      <td><%= favorite.announcement.price%></td>
+      <% else %>
+      <td> "Si" </td>
+      <td><%= favorite.announcement.price%></td>
       <td><%= link_to 'Mostra' , favorite.announcement %></td>
+      <% end %>
     </tr>
   <% end %>
 </tbody>
