@@ -5,16 +5,6 @@
     <div class="column is-8">
       <h1 class="title is-2"><%= @announcement.title %></h1>
 
-      <ul class="pv1">
-        <% if @announcement.category? %>
-        <li class="inline-block pr3"><%= @announcement.category %></li>
-        <% end %>
-
-        <% if @announcement.condition? %>
-        <li class="inline-block pr3"><%= @announcement.condition %></li>
-        <% end %>
-      </ul>
-
       <div class="feature-image">
         <%= image_tag(@announcement.image_url(:default)) %>
       </div>
