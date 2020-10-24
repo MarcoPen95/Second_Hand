@@ -9,6 +9,6 @@ class Announcement < ApplicationRecord
     validates :title, length: {maximum: 140, too_long: "%{count} characters is the maximum allowed"}
     validates :price, numericality: {only_integer: true }, length: {maximum: 7}
 
-    CATEGORY = %w{Elettronics Car Telephony}
+    CATEGORY = %w{Eletronics Car Telephony Tools VideoGames Books HomeAndKitchen Computer Clothing}
     CONDITION = %w{New Excellent Mint Used Poor }
 end
