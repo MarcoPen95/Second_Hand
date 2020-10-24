@@ -2,7 +2,7 @@
 <% content_for :header do %>
   <div class="container">
     <h1 class="title">
-      Preferiti
+      Favorites
     </h1>
   </div>
 <% end %>
@@ -10,11 +10,11 @@
 <table class="table table-striped">
 <thead class="thead-dark">
    <tr>
-     <th colspan="1">Titolo</th>
-     <th colspan="1">Descrizione</th>
-     <th colspan="1">Categoria </th>
-     <th colspan="1">Disponibilità</th>
-     <th colspan="1">Prezzo</th>
+     <th colspan="1">Name</th>
+     <th colspan="1">Description</th>
+     <th colspan="1">Category </th>
+     <th colspan="1">Availability</th>
+     <th colspan="1">Price</th>
      <th colspan="1"></th>
     </tr>
 </thead>
@@ -31,7 +31,7 @@
       <% else %>
       <td> "Si" </td>
       <td><%= favorite.announcement.price%></td>
-      <td><%= link_to 'Mostra' , favorite.announcement %></td>
+      <td><%= link_to 'Show' , favorite.announcement %></td>
       <% end %>
     </tr>
   <% end %>
