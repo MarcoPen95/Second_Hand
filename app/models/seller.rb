@@ -12,6 +12,9 @@ class Seller < ApplicationRecord
   has_many :orders
   has_one_attached :avatar
 
+  validates :username, presence: true
+  validates :email, presence: true
+
   def can_receive_payments?
     uid? && provider? && access_code && publishable_key?
    

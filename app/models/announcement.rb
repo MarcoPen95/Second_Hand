@@ -5,9 +5,10 @@ class Announcement < ApplicationRecord
     belongs_to :seller, optional: true
     has_many   :purchases
     validates :title, :category, :price, presence:true
-    validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed."}
+    validates :description, length: { maximum: 1000, too_long: "%{count} characters is the maximum allowed."}, presence:true
     validates :title, length: {maximum: 140, too_long: "%{count} characters is the maximum allowed"}
     validates :price, length: {maximum: 7}
+    validates :seller_id, presence:true
 
     CATEGORY = %w{Eletronics Car Telephony Tools VideoGames Books HomeAndKitchen Computer Clothing}
     CONDITION = %w{New Excellent Mint Used Poor }

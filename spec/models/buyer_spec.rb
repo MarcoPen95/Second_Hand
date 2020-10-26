@@ -27,7 +27,11 @@ RSpec.describe Buyer, type: :model do
           assc = described_class.reflect_on_association(:favorites)
           expect(assc.macro).to eq :has_many
         end
+        it "has many purchases" do
+          assc = described_class.reflect_on_association(:purchases)
+          expect(assc.macro).to eq :has_many
+        end
       end
-    end
+    end  
   end  
 end
