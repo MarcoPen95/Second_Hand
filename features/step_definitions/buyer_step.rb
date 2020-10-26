@@ -27,9 +27,7 @@ end
 
 When("A buyer click the {string} link") do |link|
     if link=="Favorites"
-        within("div#link") do
             click_link link
-        end
     else click_link link 
     end
 end

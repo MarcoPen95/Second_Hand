@@ -15,5 +15,5 @@ Feature: Buyer features
     Scenario: As a Buyer I want to ACCESS MY FAVORITES so that I can DISPLAY ALL MY FAVORITES
         Given A registered buyer as "username", "email@person.com", "password"
         When A buyer go to the "/" page
-        And A buyer click the "my_favorites" link
+        And A buyer click the "Favorites" link
         Then The buyer should be to redirect to "/buyer/my_favorites"
