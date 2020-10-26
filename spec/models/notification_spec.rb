@@ -7,7 +7,7 @@ RSpec.describe Notification, type: :model do
         @seller = Seller.create(username: "sandokan", email: "test@test.com", password: "password", password_confirmation: "password")
         @buyer = Buyer.create(username: "cs", email: "test@test.com", password: "password", password_confirmation: "password")
         @announcement = Announcement.create(title: "t1", category: "Books", price: "25", description: "desc", seller_id: @seller.id)
-        @notification = Notification.create(recipient_id: @seller.id, actor_id: @buyer.id, action: "buy", notifiable_id: @announcement.id)
+        @notification = Notification.create(recipient_id: @seller.id, actor_id: @buyer.id, action: "buy", notifiable: @announcement)
       end
       it 'should be able to be created if valid' do
         expect(@notification).to be_valid

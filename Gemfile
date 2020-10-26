@@ -78,7 +78,10 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver 
   gem 'capybara', '>= 2.15'
+  gem 'cucumber-rails', require: false
   gem 'webdrivers', '~> 4.0'
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
