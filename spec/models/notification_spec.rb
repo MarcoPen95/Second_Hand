@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Notification, type: :model do
-  describe 'Announcement navigation' do
+  describe 'Notification navigation' do
     describe 'Creation' do
       before do
         @seller = Seller.create(username: "sandokan", email: "test@test.com", password: "password", password_confirmation: "password")
