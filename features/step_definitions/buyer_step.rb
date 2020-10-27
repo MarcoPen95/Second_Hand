@@ -26,7 +26,7 @@ end
 
 
 When("A buyer click the {string} link") do |link|
-    if link =="Favorites" 
+    if link == "Favorites" || link == "My Purchases" || link == "Searches" 
         click_link link 
     end
 end
@@ -35,3 +35,9 @@ end
 Then("The buyer should be to redirect to {string}") do |page|
     expect(current_path).to eql page
 end
+
+Then("The buyer should see his favorites") do
+    within("div#favorites") do
+        true
+    end
+end 

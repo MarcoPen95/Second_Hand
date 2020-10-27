@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_104706) do
+ActiveRecord::Schema.define(version: 2020_10_24_195116) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -69,6 +69,21 @@ ActiveRecord::Schema.define(version: 2020_10_27_104706) do
     t.index ["reset_password_token"], name: "index_buyers_on_reset_password_token", unique: true
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "recipient_id"
+    t.integer "sender_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipient_id", "sender_id"], name: "index_conversations_on_recipient_id_and_sender_id", unique: true
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer "announcement_id"
     t.integer "buyer_id"
@@ -76,6 +91,18 @@ ActiveRecord::Schema.define(version: 2020_10_27_104706) do
     t.datetime "updated_at", null: false
     t.index ["announcement_id"], name: "index_favorites_on_announcement_id"
     t.index ["buyer_id"], name: "index_favorites_on_buyer_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.integer "buyer_id"
+    t.integer "seller_id"
+    t.integer "conversation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_messages_on_buyer_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["seller_id"], name: "index_messages_on_seller_id"
   end
 
   create_table "notifications", force: :cascade do |t|
