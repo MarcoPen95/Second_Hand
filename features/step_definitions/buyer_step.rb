@@ -26,9 +26,8 @@ end
 
 
 When("A buyer click the {string} link") do |link|
-    if link=="Favorites"
-            click_link link
-    else click_link link 
+    if link =="Favorites" 
+        click_link link 
     end
 end
 
