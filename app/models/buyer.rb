@@ -4,6 +4,8 @@ class Buyer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable 
 
+
+  has_one_attached :avatar
   has_many :favorites
   has_many :purchases
   has_many :messages
