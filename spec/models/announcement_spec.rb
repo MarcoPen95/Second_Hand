@@ -39,9 +39,9 @@ RSpec.describe Announcement, type: :model do
           assc = described_class.reflect_on_association(:seller)
           expect(assc.macro).to eq :belongs_to
         end
-        it "has many purchases" do
+        it "has one purchases" do
           assc = described_class.reflect_on_association(:purchases)
-          expect(assc.macro).to eq :has_many
+          expect(assc.macro).to eq :has_one
         end
       end
     end

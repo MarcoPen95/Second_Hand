@@ -44,6 +44,5 @@ Feature: Buyer features
         When The buyer haven't a "purchase"
         And An "email@person.com" go to the announcement+id page
         And A buyer click the "Acquista" button
-        And The "email@person.com" should see the purchase form page  
-        And The buyer should fill the purchase form in "4242424242424242","04/22","4242"
+        Then The "email@person.com" should see the purchase form page
 

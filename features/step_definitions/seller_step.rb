@@ -38,18 +38,7 @@ When("The seller should be in the {string}") do |page|
 
 end
 
-When("The seller should fill in {string},{string},{string},{string},{string},{string}") do |title,price,category,condition,descrtiption,sold|
-    fill_in 'announcement[title]', :with => title
-    fill_in 'announcement[price]', :with => price
-    page.select category, from: 'announcement[category]'
-    page.select condition, from: 'announcement[condition]'
-    page.select sold, from: 'announcement[sold]'
-    attach_file('announcement[image]', 'C:\Users\Marco\Immagini\Screenshot\tv.jpg')
 
-
-    
-
-end
 
 Then("The seller should see his features") do
     within("div#features") do
@@ -57,9 +46,6 @@ Then("The seller should see his features") do
     end
     save_and_open_page
 end
-
-
-
 
 
 Then("The seller should be to redirect to {string}") do |page|

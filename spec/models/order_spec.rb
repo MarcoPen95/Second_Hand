@@ -38,10 +38,6 @@ RSpec.describe Order, type: :model do
           assc = described_class.reflect_on_association(:seller)
           expect(assc.macro).to eq :belongs_to
         end
-        it "belongs to purchase" do
-          assc = described_class.reflect_on_association(:purchase)
-          expect(assc.macro).to eq :belongs_to
-        end
       end
     end
   end

@@ -29,8 +29,7 @@ Feature: Seller features
         Given A registered seller as "username","email1@person.com","password"
         When A seller go to the "/" page
         And A seller click the "Sell an object" link
-        When The seller should be in the "/announcements/new"
-        When The seller should fill in "xiaomi","25","Telephony","Mint","prova","No"
+        Then The seller should be to redirect to "/announcements/new"
 
      Scenario: As a Seller I want to HAVE PROFILE so that I can SHOW MY USERNAME, SHOW MY EMAIL
       Given A registered seller as "username","email@person.com","password"

@@ -69,30 +69,28 @@ When("An {string} go to the announcement+id page") do |email|
     @buyer = Buyer.find_by_email(email)
     @id = @announcement.id
     visit "/announcements/"+@id.to_s
-    save_and_open_page
-
-end
-
-When("The {string} should see the purchase form page") do |email|
-    @buyer = Buyer.find_by_email(email)
-    @id = @announcement.id
-    @price = @announcement.price
-    visit "/purchases/new?amount="+@price.to_s+"&announcement="+@id.to_s
-    save_and_open_page
     
 
 end
+
+
 
 Then("The {string} should see the search result page") do |email|
     @buyer = Buyer.find_by_email(email)
     @id = @search.id
     visit "/searches/"+@id.to_s
-    save_and_open_page
+
 
 end
 
 
-
+Then("The {string} should see the purchase form page") do |email|
+    @buyer = Buyer.find_by_email(email)
+    @id = @announcement.id
+    @price = @announcement.price
+    visit "/purchases/new?amount="+@price.to_s+"&announcement="+@id.to_s
+    
+end
 
 
 Then("The buyer should be to redirect to {string}") do |page|
