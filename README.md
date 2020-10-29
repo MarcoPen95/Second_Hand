@@ -1,4 +1,4 @@
-# Second_hand
+# Second_Hand
 
 Second Hand è un sito che consente di inserire annunci di vendita, di ricercarli e acquistare gli oggetti ad essi associati.
 Tale sito è un web application Saas and Rest, basato su Ruby on Rails. L'applicazione à stata testata con Rspec e Cucumber. Per altre informazioni guardare al seguente link:
