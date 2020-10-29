@@ -17,13 +17,8 @@ class AnnouncementsController < ApplicationController
 
   # GET /announcements/new
   def new
-    if (current_seller.can_receive_payments?)
     @announcement = current_seller.announcements.build
-    else
-      respond_to do |format|
-        format.html { redirect_to root_path, notice: "You can't insert an announcement because you are not connected to stripe"}
-      end
-    end
+    
   end
 
   # GET /announcements/1/edit

@@ -6,7 +6,9 @@
       <h1 class="title is-2"><%= @announcement.title %></h1>
 
       <div class="feature-image">
-        <%= image_tag(@announcement.image_url(:default)) %>
+         <% if @announcement.image_url %>
+         <%= image_tag(@announcement.image_url(:default)) %>
+         <% end %>
       </div>
 
       <div class="content pa4 mt3 bg-white border-radius-3">
@@ -39,7 +41,7 @@
     <div class="column is-3 is-offset-1">
       <div class="bg-white pa4 border-radius-3">
       <%=link_to favorite_text, favorites_update_path(announcement: @announcement), id:'favorite_link', remote: true %>
-        <p >Venduto da <%= @announcement.seller.username %></p>
+        <p >Sold by <%= @announcement.seller.username %></p>
         <button class="buy">
         <%= link_to "Acquista #{number_to_currency(@announcement.price)}", new_purchase_path(amount: @announcement.price, announcement: @announcement) ,class:"btn btn-default btn-expanded" %>
         </button>

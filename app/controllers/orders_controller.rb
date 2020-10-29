@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        ExampleMailer.sample_email(@order.purchase.buyer).deliver_now
+        ExampleMailer.sample_email(@order.announcement.purchase.buyer).deliver_now
         format.html { redirect_to seller_my_orders_path, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else

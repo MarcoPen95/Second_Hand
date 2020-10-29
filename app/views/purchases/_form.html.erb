@@ -14,5 +14,5 @@
 
   <input type="hidden" name="announcement" value="<%= params[:announcement] %>">
 
-  <button>Back <%= number_to_currency(params[:amount]) %> /mo toward <em><%= announcement.title %></em></button>
+  <button class="purchase">Buy<em></em></button> <%= number_to_currency(params[:amount]) %>
 <% end %>

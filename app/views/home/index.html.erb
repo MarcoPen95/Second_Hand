@@ -13,7 +13,41 @@
      <% end%>  
     </div>
     </div>
+    <div class="columns">
+  <div class="column is-4">
+  </div>
+  <div class="column is-3">
+  <div class="card">
+  <div class="card-image">
+    <figure class="image is-3by2">
+      <a href='/sellers/sign_up'> <%= image_tag("seller.png", ) %></a>
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="content">
+      <p> Seller</p>
+    </div>
+    </div>
+   </div> 
+  </div>
    </div>
+     <%elsif buyer_signed_in? %>
+     <h3> Hi friend you can now begin shoping! </h3>
+     <div class="columns">
+     <div class="column is-4">
+     </div>
+  <div class="column is-3">
+  <div class="card">
+  <div class="card-image">
+    <figure class="image is-3by2">
+      <a href='/buyers/sign_up'> <%= image_tag("buyer.png", ) %></a>
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="content">
+    <a href="#"> Are you a buyer ?</a>
+    </div>
+  </div>
    <% else %>
      <h3> GUEST </h3>
     </section>
@@ -27,8 +61,6 @@
    </div>
   <br>
 <br>
- <% end %>
-
 <div class="columns">
   <div class="column is-2">
   </div>
@@ -60,3 +92,7 @@
     <a href="#"> Are you a buyer ?</a>
     </div>
   </div>
+
+
+ <% end %>
+
