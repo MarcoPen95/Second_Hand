@@ -3,7 +3,7 @@
 Second Hand è un sito che consente di inserire annunci di vendita, di ricercarli e acquistare gli oggetti ad essi associati.
 Tale sito è un web application Saas and Rest, basato su Ruby on Rails. L'applicazione à stata testata con Rspec e Cucumber. Per altre informazioni guardare al seguente link:
 
-- **[Relazione gruppo](https://drive.google.com/file/d/16ILXaQJ6vqLrgMNsIxBmBWYaIM-EGqGj/view?usp=sharing)**
+- **[Relazione gruppo](https://drive.google.com/file/d/1L3gEEZyEfhaIUli3gGFkhmwzXUzTsa4Q/view?usp=sharing)**
 - **[Schema ER](https://github.com/MarcoPen95/Second_Hand/blob/master/Final_ER.pdf)**
 - **[Mockups](https://github.com/MarcoPen95/Second_Hand/blob/master/Final_mockups.pdf)**
 
