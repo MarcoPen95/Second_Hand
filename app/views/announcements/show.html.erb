@@ -53,7 +53,7 @@
    <% else %>
   <div class="column is-3 is-offset-1">
   <div class="bg-white pa4 border-radius-3">
-    <p >Venduto da <%= @announcement.seller.email %></p>
+    <p >Sold by <%= @announcement.seller.email %></p>
      <% if announcement_author(@announcement) %>
     <%= link_to 'Edit', edit_announcement_path(@announcement), class: 'button' %>
     <% end %>

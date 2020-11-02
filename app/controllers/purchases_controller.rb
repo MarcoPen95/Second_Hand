@@ -52,8 +52,8 @@ class PurchasesController < ApplicationController
     respond_to do |format|
       if @purchase.save
         #create the notifications
-        Order.create(description: "ordine 2",seller:@announcement.seller,announcement: @announcement)
-        Notification.create(recipient: @announcement .seller, actor: current_buyer, action: "buy" ,notifiable: @announcement)
+        Order.create(description: "ordine 2",seller: @announcement.seller,announcement: @announcement)
+        Notification.create(recipient: @announcement.seller, actor: current_buyer, action: "buy" ,notifiable: @announcement)
         @user = current_buyer
         format.html { redirect_to buyer_my_purchases_path, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @purchase }
