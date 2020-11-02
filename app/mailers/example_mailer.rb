@@ -4,7 +4,7 @@ class ExampleMailer < ApplicationMailer
   def sample_email(buyer)
     @email = buyer.email
     mg_client = Mailgun::Client.new ENV['mailgun_apikey']
-    message_params = {:from    => ENV['gmail_username'],
+    message_params = {:from    => 'second_hand@gmail.com',
                       :to      => @email,
                       :subject => 'Order information',
                       :text    => 'Your order has been sent'}

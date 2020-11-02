@@ -99,7 +99,7 @@ end
 
 Then("The buyer should be able to favorite an {string}") do |string|
     
-    click_link("Aggiungi ai preferiti")
+    click_link("Add to Favorite")
    
     
 end

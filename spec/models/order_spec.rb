@@ -23,10 +23,6 @@ RSpec.describe Order, type: :model do
           @order.seller_id = nil
           expect(@order).to_not be_valid
         end
-        it 'should not be valid without a purchase_id' do
-          @order.purchase_id = nil
-          expect(@order).to_not be_valid
-        end
       end
 
       describe "Associations" do

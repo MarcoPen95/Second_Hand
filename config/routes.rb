@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   #home routes
   root 'home#index'
   get 'announcements/search' , to:'announcement#search'
+  get '/about', to: 'home#about'
 
   resources :searches
 
